@@ -1,4 +1,5 @@
 # todo-app（Phase 1 完成版）
+#演習１　変更済み
 
 「Webフロントエンド」授業 Phase 1（コマ1〜6）の完成版 TODO アプリです。
 Next.js（App Router）で作っています。
