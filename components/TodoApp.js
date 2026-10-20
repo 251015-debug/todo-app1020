@@ -37,6 +37,12 @@ export default function TodoApp() {
     setTodos(todos.filter((todo) => todo.id !== id))
   }
 
+
+function clearAll() {
+  if (!window.confirm('すべての TODO を削除しますか？')) return
+  setTodos([])
+}
+
   function clearDone() {
     if (!window.confirm('完了済みの TODO を削除しますか？')) return
     setTodos(todos.filter((todo) => !todo.done))
@@ -53,6 +59,7 @@ export default function TodoApp() {
       <TodoForm onAdd={addTodo} />
       <TodoFilter value={filter} onChange={setFilter} />
       <TodoList todos={visibleTodos} onToggle={toggleTodo} onDelete={deleteTodo} />
+
       {todos.length > 0 && (
         <p>
           全 {todos.length} 件 / 完了 {doneCount} 件 / 残り {remaining} 件
@@ -61,6 +68,10 @@ export default function TodoApp() {
       <button onClick={clearDone} disabled={doneCount === 0}>
         完了済みを削除
       </button>
+<button onClick={clearAll} disabled={todos.length === 0}>
+  すべて削除
+</button>
+
     </div>
   )
 }
